@@ -2,6 +2,9 @@
     min-height: 650px;
     padding: 21px 0 93px 0;
     background: url(../../img/bg-run.png) center (center/cover) no-repeat;
+    &__contacts_hidden {
+        display: none;
+    }
     &__wrapper {
         display: flex;
         flex-direction: column;
