@@ -1,7 +1,16 @@
 .title {
-    text-align: center;
     color: #0d0d0d;
     font-size: 30px;
     font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    &_left {
+        font-size: 36px;
+        color: #FFFFFF;
+        text-align: left;
+        &_hidden {
+            display: none;
+        }
+    }
     
 }
