@@ -24,6 +24,20 @@
 	.feed-form {
 		padding-left: 20px;
 	}
+	.carousel__inner {
+		width: 550px;
+		img {
+			width: 70%;
+			margin: 0 auto;
+		}
+	}
+	.catalog__content {
+		padding: 0 30px;
+		justify-content: space-around;
+	}
+	.catalog-item {
+		margin-bottom: 33px;
+	}
 }
 @media (max-width: 991px) {
 	.header {
@@ -106,6 +120,26 @@
 	.feed-form {
 		padding-left: 32px;
 	}
+	.carousel{
+		.slick-prev {
+			left: -10%;
+		}
+		.slick-next {
+			right: -10%;
+		}
+	}
+	.catalog {
+	&__tab{
+		width: 190px;
+	}
+	&-item {
+		hr {
+			margin-top: 10px;
+   			margin-bottom: 10px;
+		}
+	}
+	}
+	
 }
 @media (max-width: 767px) {
 	.header {
@@ -179,6 +213,30 @@
 		padding-left: 0;
 		margin: 0 auto;
 		margin-top: 20px;
+	}
+	
+	.carousel {
+		&__inner {
+			width: 550px;
+			img {
+				width: 60%;
+			}
+		}
+		.slick-prev {
+			left: 5%;
+		}
+		.slick-next {
+			right: 5%;
+		}
+	}
+	.title {
+		font-size: 28px;
+	}
+	.catalog {
+		&__tab{
+			width: 155px;
+			font-size: 16px;
+		}
 	}
 }
 @media (max-width: 575px) {
@@ -270,4 +328,50 @@
 		margin-top: 20px;
 		padding: 0 30px;
 	}
+	.carousel {
+		padding: 70px 0;
+		&__inner {
+			width: 300px;
+			min-height: 150px;
+			img {
+				width: 70%;
+			}
+		}
+		.slick-prev, .slick-next {
+			img {
+				display: none;
+			}
+		}
+		.slick-dots {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			margin-top: 10px;
+			button {
+				display: none;
+			}
+		}
+	}
+	.catalog {
+		&__tabs{
+			flex-direction: column;
+			margin-top: 50px;
+		}
+		&__tab {
+			margin-bottom: 10px;
+		}
+		&-item {
+			&__footer {
+				flex-direction: column;
+			}
+			&__price {
+				margin-bottom: 7px;
+			}
+			hr {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
+	}
+
 }
