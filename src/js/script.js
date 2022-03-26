@@ -61,4 +61,71 @@ $(document).ready(function(){
 			$('.overlay, #order').fadeIn('slow');
 		})
 	});
+
+	// Валидные формы показывающие ошибки при заполнении формы
+
+	function valideForms(form){
+		$(form).validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 2
+				  },
+				phone: "required",
+				email: {
+					required: true,
+					email: true
+				}
+			},
+			messages: {
+				name: {
+					required: "Пожалуйста, введите свое имя",
+					minlength: jQuery.validator.format("Введите как минимум {0} символа!")
+					},
+				phone: "Пожалуйста, введите свой номер телефона",
+				email: {
+				  required: "Пожалуйста, введите свою почту",
+				  email: "Неправильно введен адрес почты"
+				}
+			  }
+		});
+	};
+
+	valideForms('#consultation-form');
+	valideForms('#consultation form');
+	valideForms('#order form');
+
+	$('input[name=phone]').mask("+7 (999) 999-99-99");
+
+	$('form').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn('slow');
+
+            $('form').trigger('reset');
+        });
+        return false;
+    });
+
+	//smooth scroll
+
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > 1600) {
+			$('.pageup').fadeIn();
+		} else {
+			$('.pageup').fadeOut();
+		}
+	});
+
+	$("a[hrefˆ='#']").click(function(){
+		const _href = $(this).attr("href");
+		$("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+		return false;
+	});
   });
